@@ -7,15 +7,15 @@ pipeline {
     
     stages{
         stage("Cleanup Workspace"){
-                steps {
+            steps {
                 cleanWs()
-                }
+            }
         }
 
         stage("Checkout from SCM"){
-                steps {
-                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/avinashbudhya/register-app'
-                }
+            steps {
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/avinashbudhya/register-app'
+            }
         }
 
         stage("Build Application"){
@@ -27,7 +27,7 @@ pipeline {
 
        stage("Test Application"){
            steps {
-                 sh "mvn test"
+               sh "mvn test"
            }
        }
 
